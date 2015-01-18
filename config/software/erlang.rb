@@ -87,8 +87,10 @@ build do
           " --enable-shared-zlib" \
           " --enable-hipe" \
           " --without-javac" \
+          " --without-jinterface" \
           " --with-ssl=#{install_dir}/embedded" \
-          " --disable-debug", env: env
+          " --with-dynamic-trace=systemtap" \
+          " --enable-vm-probes", env: env
 
   make "-j #{workers}", env: env
   make "install", env: env
